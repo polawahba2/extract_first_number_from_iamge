@@ -3,6 +3,7 @@
 import 'dart:io';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
+import 'package:get_beggest_number/is_number_extension_fun.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 
@@ -54,21 +55,27 @@ class _MyButtonState extends State<MyButton> {
     final RecognizedText recognizedText =
         await textRecognizer.processImage(inputImage);
 
+    print(recognizedText.blocks.length);
     setState(() {
       extractedText = recognizedText.text;
       isTextExtracted = true;
 
       isStillExtractingImage = false;
-      firstNumberAsString = _extractFirstNumber(recognizedText.blocks.first);
+      firstNumberAsString = _extractFirstNumber(recognizedText.blocks);
     });
   }
 
-  String _extractFirstNumber(TextBlock textBlock) {
-    String text = textBlock.text;
-    RegExp regExp = RegExp(r'\d+');
-    Iterable<RegExpMatch> matches = regExp.allMatches(text);
-    String firstNumber = matches.first.group(0)!;
-    return firstNumber.toString();
+  String _extractFirstNumber(List<TextBlock> textBlocks) {
+    for (TextBlock textBlock in textBlocks) {
+      String text = textBlock.text;
+      RegExp regExp = RegExp(r'\d+');
+      Iterable<RegExpMatch> matches = regExp.allMatches(text);
+      if (matches.isNotEmpty) {
+        String firstNumber = matches.first.group(0)!;
+        return firstNumber;
+      }
+    }
+    return 'No Numbers Found';
   }
 
   @override

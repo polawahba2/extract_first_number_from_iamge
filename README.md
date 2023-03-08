@@ -1,16 +1,8 @@
-# get_beggest_number
+open the camera and get the beggest number from the picked image
 
-A new Flutter project.
+![sample_data](https://user-images.githubusercontent.com/58266158/223712271-c20d7c0f-32a5-4fbe-bd37-2785516b532b.jpeg)
 
-## Getting Started
+![output](https://user-images.githubusercontent.com/58266158/223712305-535bb7e0-870f-4d4a-8b59-b285cf6e8d7b.jpeg)
 
-This project is a starting point for a Flutter application.
+![data](https://user-images.githubusercontent.com/58266158/223712225-43b20698-f4fc-4852-93d9-806fe3c8b417.jpeg)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
